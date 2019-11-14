@@ -64,11 +64,17 @@ namespace HateksDepoQr {
         
         private global::System.Data.DataRelation relationFK_BoxInPalet_GeneratedBox;
         
+        private global::System.Data.DataRelation relationFK_BoxInPalet_GeneratedPalet;
+        
         private global::System.Data.DataRelation relationFK_GeneratedBox_Box1;
         
         private global::System.Data.DataRelation relationFK_GeneratedBox_Customer;
         
-        private global::System.Data.DataRelation relationFK_BoxInPalet_GeneratedPalet;
+        private global::System.Data.DataRelation relationFK_PrintLogGeneratedBox_Member;
+        
+        private global::System.Data.DataRelation relationFK_PrintLogGeneratedPalet_Member;
+        
+        private global::System.Data.DataRelation relationFK_ProductInBox_Product;
         
         private global::System.Data.DataRelation relationFK_Box_Member;
         
@@ -76,27 +82,21 @@ namespace HateksDepoQr {
         
         private global::System.Data.DataRelation relationFK_GeneratedBox_Member;
         
-        private global::System.Data.DataRelation relationFK_GeneratedPalet_Member;
-        
         private global::System.Data.DataRelation relationFK_GeneratedBox_Place;
-        
-        private global::System.Data.DataRelation relationFK_GeneratedPalet_Place;
-        
-        private global::System.Data.DataRelation relationFK_PrintLogGeneratedBox_GeneratedBox;
-        
-        private global::System.Data.DataRelation relationFK_PrintLogGeneratedBox_Member;
-        
-        private global::System.Data.DataRelation relationFK_PrintLogGeneratedPalet_GeneratedPalet;
-        
-        private global::System.Data.DataRelation relationFK_PrintLogGeneratedPalet_Member;
-        
-        private global::System.Data.DataRelation relationFK_ProductInBox_Box;
-        
-        private global::System.Data.DataRelation relationFK_ProductInBox_Product;
         
         private global::System.Data.DataRelation relationFK_GeneratedBox_State;
         
+        private global::System.Data.DataRelation relationFK_GeneratedPalet_Member;
+        
+        private global::System.Data.DataRelation relationFK_GeneratedPalet_Place;
+        
         private global::System.Data.DataRelation relationFK_GeneratedPalet_State;
+        
+        private global::System.Data.DataRelation relationFK_PrintLogGeneratedBox_GeneratedBox;
+        
+        private global::System.Data.DataRelation relationFK_PrintLogGeneratedPalet_GeneratedPalet;
+        
+        private global::System.Data.DataRelation relationFK_ProductInBox_Box;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -663,23 +663,23 @@ namespace HateksDepoQr {
                 }
             }
             this.relationFK_BoxInPalet_GeneratedBox = this.Relations["FK_BoxInPalet_GeneratedBox"];
+            this.relationFK_BoxInPalet_GeneratedPalet = this.Relations["FK_BoxInPalet_GeneratedPalet"];
             this.relationFK_GeneratedBox_Box1 = this.Relations["FK_GeneratedBox_Box1"];
             this.relationFK_GeneratedBox_Customer = this.Relations["FK_GeneratedBox_Customer"];
-            this.relationFK_BoxInPalet_GeneratedPalet = this.Relations["FK_BoxInPalet_GeneratedPalet"];
+            this.relationFK_PrintLogGeneratedBox_Member = this.Relations["FK_PrintLogGeneratedBox_Member"];
+            this.relationFK_PrintLogGeneratedPalet_Member = this.Relations["FK_PrintLogGeneratedPalet_Member"];
+            this.relationFK_ProductInBox_Product = this.Relations["FK_ProductInBox_Product"];
             this.relationFK_Box_Member = this.Relations["FK_Box_Member"];
             this.relationFK_BoxInPalet_Member = this.Relations["FK_BoxInPalet_Member"];
             this.relationFK_GeneratedBox_Member = this.Relations["FK_GeneratedBox_Member"];
-            this.relationFK_GeneratedPalet_Member = this.Relations["FK_GeneratedPalet_Member"];
             this.relationFK_GeneratedBox_Place = this.Relations["FK_GeneratedBox_Place"];
-            this.relationFK_GeneratedPalet_Place = this.Relations["FK_GeneratedPalet_Place"];
-            this.relationFK_PrintLogGeneratedBox_GeneratedBox = this.Relations["FK_PrintLogGeneratedBox_GeneratedBox"];
-            this.relationFK_PrintLogGeneratedBox_Member = this.Relations["FK_PrintLogGeneratedBox_Member"];
-            this.relationFK_PrintLogGeneratedPalet_GeneratedPalet = this.Relations["FK_PrintLogGeneratedPalet_GeneratedPalet"];
-            this.relationFK_PrintLogGeneratedPalet_Member = this.Relations["FK_PrintLogGeneratedPalet_Member"];
-            this.relationFK_ProductInBox_Box = this.Relations["FK_ProductInBox_Box"];
-            this.relationFK_ProductInBox_Product = this.Relations["FK_ProductInBox_Product"];
             this.relationFK_GeneratedBox_State = this.Relations["FK_GeneratedBox_State"];
+            this.relationFK_GeneratedPalet_Member = this.Relations["FK_GeneratedPalet_Member"];
+            this.relationFK_GeneratedPalet_Place = this.Relations["FK_GeneratedPalet_Place"];
             this.relationFK_GeneratedPalet_State = this.Relations["FK_GeneratedPalet_State"];
+            this.relationFK_PrintLogGeneratedBox_GeneratedBox = this.Relations["FK_PrintLogGeneratedBox_GeneratedBox"];
+            this.relationFK_PrintLogGeneratedPalet_GeneratedPalet = this.Relations["FK_PrintLogGeneratedPalet_GeneratedPalet"];
+            this.relationFK_ProductInBox_Box = this.Relations["FK_ProductInBox_Box"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -732,6 +732,10 @@ namespace HateksDepoQr {
                         this.tableGeneratedBox.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableBoxInGeneratedPalet.GeneratedBoxIdColumn}, false);
             this.Relations.Add(this.relationFK_BoxInPalet_GeneratedBox);
+            this.relationFK_BoxInPalet_GeneratedPalet = new global::System.Data.DataRelation("FK_BoxInPalet_GeneratedPalet", new global::System.Data.DataColumn[] {
+                        this.tableGeneratedPalet.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableBoxInGeneratedPalet.GeneratedPaletIdColumn}, false);
+            this.Relations.Add(this.relationFK_BoxInPalet_GeneratedPalet);
             this.relationFK_GeneratedBox_Box1 = new global::System.Data.DataRelation("FK_GeneratedBox_Box1", new global::System.Data.DataColumn[] {
                         this.tableBox.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableGeneratedBox.BoxIdColumn}, false);
@@ -740,10 +744,18 @@ namespace HateksDepoQr {
                         this.tableCustomer.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableGeneratedBox.CustomerIdColumn}, false);
             this.Relations.Add(this.relationFK_GeneratedBox_Customer);
-            this.relationFK_BoxInPalet_GeneratedPalet = new global::System.Data.DataRelation("FK_BoxInPalet_GeneratedPalet", new global::System.Data.DataColumn[] {
-                        this.tableGeneratedPalet.IdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableBoxInGeneratedPalet.GeneratedPaletIdColumn}, false);
-            this.Relations.Add(this.relationFK_BoxInPalet_GeneratedPalet);
+            this.relationFK_PrintLogGeneratedBox_Member = new global::System.Data.DataRelation("FK_PrintLogGeneratedBox_Member", new global::System.Data.DataColumn[] {
+                        this.tableMember.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tablePrintLogGeneratedBox.MemberIdColumn}, false);
+            this.Relations.Add(this.relationFK_PrintLogGeneratedBox_Member);
+            this.relationFK_PrintLogGeneratedPalet_Member = new global::System.Data.DataRelation("FK_PrintLogGeneratedPalet_Member", new global::System.Data.DataColumn[] {
+                        this.tableMember.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tablePrintLogGeneratedPalet.MemberIdColumn}, false);
+            this.Relations.Add(this.relationFK_PrintLogGeneratedPalet_Member);
+            this.relationFK_ProductInBox_Product = new global::System.Data.DataRelation("FK_ProductInBox_Product", new global::System.Data.DataColumn[] {
+                        this.tableProduct.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableProductInBox.ProductIdColumn}, false);
+            this.Relations.Add(this.relationFK_ProductInBox_Product);
             this.relationFK_Box_Member = new global::System.Data.DataRelation("FK_Box_Member", new global::System.Data.DataColumn[] {
                         this.tableMember.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableBox.MemberIdColumn}, false);
@@ -756,50 +768,38 @@ namespace HateksDepoQr {
                         this.tableMember.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableGeneratedBox.MemberIdColumn}, false);
             this.Relations.Add(this.relationFK_GeneratedBox_Member);
-            this.relationFK_GeneratedPalet_Member = new global::System.Data.DataRelation("FK_GeneratedPalet_Member", new global::System.Data.DataColumn[] {
-                        this.tableMember.IdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableGeneratedPalet.MemberIdColumn}, false);
-            this.Relations.Add(this.relationFK_GeneratedPalet_Member);
             this.relationFK_GeneratedBox_Place = new global::System.Data.DataRelation("FK_GeneratedBox_Place", new global::System.Data.DataColumn[] {
                         this.tablePlace.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableGeneratedBox.PlaceIdColumn}, false);
             this.Relations.Add(this.relationFK_GeneratedBox_Place);
-            this.relationFK_GeneratedPalet_Place = new global::System.Data.DataRelation("FK_GeneratedPalet_Place", new global::System.Data.DataColumn[] {
-                        this.tablePlace.IdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableGeneratedPalet.PlaceIdColumn}, false);
-            this.Relations.Add(this.relationFK_GeneratedPalet_Place);
-            this.relationFK_PrintLogGeneratedBox_GeneratedBox = new global::System.Data.DataRelation("FK_PrintLogGeneratedBox_GeneratedBox", new global::System.Data.DataColumn[] {
-                        this.tableGeneratedBox.IdColumn}, new global::System.Data.DataColumn[] {
-                        this.tablePrintLogGeneratedBox.GeneratedBoxIdColumn}, false);
-            this.Relations.Add(this.relationFK_PrintLogGeneratedBox_GeneratedBox);
-            this.relationFK_PrintLogGeneratedBox_Member = new global::System.Data.DataRelation("FK_PrintLogGeneratedBox_Member", new global::System.Data.DataColumn[] {
-                        this.tableMember.IdColumn}, new global::System.Data.DataColumn[] {
-                        this.tablePrintLogGeneratedBox.MemberIdColumn}, false);
-            this.Relations.Add(this.relationFK_PrintLogGeneratedBox_Member);
-            this.relationFK_PrintLogGeneratedPalet_GeneratedPalet = new global::System.Data.DataRelation("FK_PrintLogGeneratedPalet_GeneratedPalet", new global::System.Data.DataColumn[] {
-                        this.tableGeneratedPalet.IdColumn}, new global::System.Data.DataColumn[] {
-                        this.tablePrintLogGeneratedPalet.GeneratedPaletIdColumn}, false);
-            this.Relations.Add(this.relationFK_PrintLogGeneratedPalet_GeneratedPalet);
-            this.relationFK_PrintLogGeneratedPalet_Member = new global::System.Data.DataRelation("FK_PrintLogGeneratedPalet_Member", new global::System.Data.DataColumn[] {
-                        this.tableMember.IdColumn}, new global::System.Data.DataColumn[] {
-                        this.tablePrintLogGeneratedPalet.MemberIdColumn}, false);
-            this.Relations.Add(this.relationFK_PrintLogGeneratedPalet_Member);
-            this.relationFK_ProductInBox_Box = new global::System.Data.DataRelation("FK_ProductInBox_Box", new global::System.Data.DataColumn[] {
-                        this.tableBox.IdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableProductInBox.BoxIdColumn}, false);
-            this.Relations.Add(this.relationFK_ProductInBox_Box);
-            this.relationFK_ProductInBox_Product = new global::System.Data.DataRelation("FK_ProductInBox_Product", new global::System.Data.DataColumn[] {
-                        this.tableProduct.IdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableProductInBox.ProductIdColumn}, false);
-            this.Relations.Add(this.relationFK_ProductInBox_Product);
             this.relationFK_GeneratedBox_State = new global::System.Data.DataRelation("FK_GeneratedBox_State", new global::System.Data.DataColumn[] {
                         this.tableState.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableGeneratedBox.StateIdColumn}, false);
             this.Relations.Add(this.relationFK_GeneratedBox_State);
+            this.relationFK_GeneratedPalet_Member = new global::System.Data.DataRelation("FK_GeneratedPalet_Member", new global::System.Data.DataColumn[] {
+                        this.tableMember.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableGeneratedPalet.MemberIdColumn}, false);
+            this.Relations.Add(this.relationFK_GeneratedPalet_Member);
+            this.relationFK_GeneratedPalet_Place = new global::System.Data.DataRelation("FK_GeneratedPalet_Place", new global::System.Data.DataColumn[] {
+                        this.tablePlace.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableGeneratedPalet.PlaceIdColumn}, false);
+            this.Relations.Add(this.relationFK_GeneratedPalet_Place);
             this.relationFK_GeneratedPalet_State = new global::System.Data.DataRelation("FK_GeneratedPalet_State", new global::System.Data.DataColumn[] {
                         this.tableState.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableGeneratedPalet.StateIdColumn}, false);
             this.Relations.Add(this.relationFK_GeneratedPalet_State);
+            this.relationFK_PrintLogGeneratedBox_GeneratedBox = new global::System.Data.DataRelation("FK_PrintLogGeneratedBox_GeneratedBox", new global::System.Data.DataColumn[] {
+                        this.tableGeneratedBox.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tablePrintLogGeneratedBox.GeneratedBoxIdColumn}, false);
+            this.Relations.Add(this.relationFK_PrintLogGeneratedBox_GeneratedBox);
+            this.relationFK_PrintLogGeneratedPalet_GeneratedPalet = new global::System.Data.DataRelation("FK_PrintLogGeneratedPalet_GeneratedPalet", new global::System.Data.DataColumn[] {
+                        this.tableGeneratedPalet.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tablePrintLogGeneratedPalet.GeneratedPaletIdColumn}, false);
+            this.Relations.Add(this.relationFK_PrintLogGeneratedPalet_GeneratedPalet);
+            this.relationFK_ProductInBox_Box = new global::System.Data.DataRelation("FK_ProductInBox_Box", new global::System.Data.DataColumn[] {
+                        this.tableBox.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableProductInBox.BoxIdColumn}, false);
+            this.Relations.Add(this.relationFK_ProductInBox_Box);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8219,6 +8219,28 @@ namespace HateksDepoQr {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public PrintLogGeneratedBoxRow[] GetPrintLogGeneratedBoxRows() {
+                if ((this.Table.ChildRelations["FK_PrintLogGeneratedBox_Member"] == null)) {
+                    return new PrintLogGeneratedBoxRow[0];
+                }
+                else {
+                    return ((PrintLogGeneratedBoxRow[])(base.GetChildRows(this.Table.ChildRelations["FK_PrintLogGeneratedBox_Member"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public PrintLogGeneratedPaletRow[] GetPrintLogGeneratedPaletRows() {
+                if ((this.Table.ChildRelations["FK_PrintLogGeneratedPalet_Member"] == null)) {
+                    return new PrintLogGeneratedPaletRow[0];
+                }
+                else {
+                    return ((PrintLogGeneratedPaletRow[])(base.GetChildRows(this.Table.ChildRelations["FK_PrintLogGeneratedPalet_Member"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public BoxRow[] GetBoxRows() {
                 if ((this.Table.ChildRelations["FK_Box_Member"] == null)) {
                     return new BoxRow[0];
@@ -8258,28 +8280,6 @@ namespace HateksDepoQr {
                 }
                 else {
                     return ((GeneratedPaletRow[])(base.GetChildRows(this.Table.ChildRelations["FK_GeneratedPalet_Member"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PrintLogGeneratedBoxRow[] GetPrintLogGeneratedBoxRows() {
-                if ((this.Table.ChildRelations["FK_PrintLogGeneratedBox_Member"] == null)) {
-                    return new PrintLogGeneratedBoxRow[0];
-                }
-                else {
-                    return ((PrintLogGeneratedBoxRow[])(base.GetChildRows(this.Table.ChildRelations["FK_PrintLogGeneratedBox_Member"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PrintLogGeneratedPaletRow[] GetPrintLogGeneratedPaletRows() {
-                if ((this.Table.ChildRelations["FK_PrintLogGeneratedPalet_Member"] == null)) {
-                    return new PrintLogGeneratedPaletRow[0];
-                }
-                else {
-                    return ((PrintLogGeneratedPaletRow[])(base.GetChildRows(this.Table.ChildRelations["FK_PrintLogGeneratedPalet_Member"])));
                 }
             }
         }
@@ -8442,23 +8442,23 @@ namespace HateksDepoQr {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public GeneratedBoxRow GeneratedBoxRow {
-                get {
-                    return ((GeneratedBoxRow)(this.GetParentRow(this.Table.ParentRelations["FK_PrintLogGeneratedBox_GeneratedBox"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_PrintLogGeneratedBox_GeneratedBox"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public MemberRow MemberRow {
                 get {
                     return ((MemberRow)(this.GetParentRow(this.Table.ParentRelations["FK_PrintLogGeneratedBox_Member"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_PrintLogGeneratedBox_Member"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public GeneratedBoxRow GeneratedBoxRow {
+                get {
+                    return ((GeneratedBoxRow)(this.GetParentRow(this.Table.ParentRelations["FK_PrintLogGeneratedBox_GeneratedBox"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_PrintLogGeneratedBox_GeneratedBox"]);
                 }
             }
         }
@@ -8523,23 +8523,23 @@ namespace HateksDepoQr {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public GeneratedPaletRow GeneratedPaletRow {
-                get {
-                    return ((GeneratedPaletRow)(this.GetParentRow(this.Table.ParentRelations["FK_PrintLogGeneratedPalet_GeneratedPalet"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_PrintLogGeneratedPalet_GeneratedPalet"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public MemberRow MemberRow {
                 get {
                     return ((MemberRow)(this.GetParentRow(this.Table.ParentRelations["FK_PrintLogGeneratedPalet_Member"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_PrintLogGeneratedPalet_Member"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public GeneratedPaletRow GeneratedPaletRow {
+                get {
+                    return ((GeneratedPaletRow)(this.GetParentRow(this.Table.ParentRelations["FK_PrintLogGeneratedPalet_GeneratedPalet"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_PrintLogGeneratedPalet_GeneratedPalet"]);
                 }
             }
         }
@@ -8674,23 +8674,23 @@ namespace HateksDepoQr {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public BoxRow BoxRow {
-                get {
-                    return ((BoxRow)(this.GetParentRow(this.Table.ParentRelations["FK_ProductInBox_Box"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_ProductInBox_Box"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public ProductRow ProductRow {
                 get {
                     return ((ProductRow)(this.GetParentRow(this.Table.ParentRelations["FK_ProductInBox_Product"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_ProductInBox_Product"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public BoxRow BoxRow {
+                get {
+                    return ((BoxRow)(this.GetParentRow(this.Table.ParentRelations["FK_ProductInBox_Box"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_ProductInBox_Box"]);
                 }
             }
         }
@@ -10663,7 +10663,7 @@ SELECT Id, MemberId, Name, Date FROM Box WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString;
+            this._connection.ConnectionString = global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString2;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10997,7 +10997,7 @@ SELECT Id, MemberId, GeneratedPaletId, GeneratedBoxId, Date FROM BoxInGeneratedP
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString;
+            this._connection.ConnectionString = global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString2;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11317,7 +11317,7 @@ SELECT Id, MemberId, GeneratedPaletId, GeneratedBoxId, Date FROM BoxInGeneratedP
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString;
+            this._connection.ConnectionString = global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString2;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11695,7 +11695,7 @@ SELECT Id, MemberId, CustomerId, StateId, PlaceId, BoxId, BoxQr, Date FROM Gener
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString;
+            this._connection.ConnectionString = global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString2;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12101,7 +12101,7 @@ SELECT Id, MemberId, StateId, PlaceId, PaletQr, Date FROM GeneratedPalet WHERE (
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString;
+            this._connection.ConnectionString = global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString2;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12485,7 +12485,7 @@ SELECT Id, Name, Password, Date FROM Member WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString;
+            this._connection.ConnectionString = global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString2;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12844,7 +12844,7 @@ SELECT Id, Name, Code, Description FROM Place WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString;
+            this._connection.ConnectionString = global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString2;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13205,7 +13205,7 @@ SELECT Id, MemberId, GeneratedBoxId, Date FROM PrintLogGeneratedBox WHERE (Id = 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString;
+            this._connection.ConnectionString = global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString2;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13522,7 +13522,7 @@ SELECT Id, MemberId, GeneratedPaletId, Date FROM PrintLogGeneratedPalet WHERE (I
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString;
+            this._connection.ConnectionString = global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString2;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13833,7 +13833,7 @@ SELECT Id, ProductTexttileId, Name FROM Product WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString;
+            this._connection.ConnectionString = global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString2;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14171,7 +14171,7 @@ SELECT Id, ProductId, BoxId, ProductCount, Date FROM ProductInBox WHERE (Id = @I
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString;
+            this._connection.ConnectionString = global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString2;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14494,7 +14494,7 @@ SELECT Id, Name, Code, Description FROM State WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString;
+            this._connection.ConnectionString = global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString2;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14830,7 +14830,7 @@ SELECT Id, Name, Code, Description FROM State WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString;
+            this._connection.ConnectionString = global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString2;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15007,7 +15007,7 @@ SELECT Id, Name, Code, Description FROM State WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString;
+            this._connection.ConnectionString = global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString2;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15183,7 +15183,7 @@ SELECT Id, Name, Code, Description FROM State WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString;
+            this._connection.ConnectionString = global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString2;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15358,7 +15358,7 @@ SELECT Id, Name, Code, Description FROM State WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString;
+            this._connection.ConnectionString = global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString2;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15537,7 +15537,7 @@ SELECT Id, Name, Code, Description FROM State WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString;
+            this._connection.ConnectionString = global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString2;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15717,7 +15717,7 @@ SELECT Id, Name, Code, Description FROM State WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString;
+            this._connection.ConnectionString = global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString2;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15887,7 +15887,7 @@ SELECT Id, Name, Code, Description FROM State WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString;
+            this._connection.ConnectionString = global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString2;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15957,7 +15957,7 @@ SELECT Id, Name, Code, Description FROM State WHERE (Id = @Id)";
         private void InitCommandCollection() {
             this._commandCollection = new global::System.Data.IDbCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Connection = new global::System.Data.SqlClient.SqlConnection(global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Connection = new global::System.Data.SqlClient.SqlConnection(global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString2);
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandText = "dbo.SP_InsertBoxInGeneratedPalet";
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandType = global::System.Data.CommandType.StoredProcedure;
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -15966,13 +15966,13 @@ SELECT Id, Name, Code, Description FROM State WHERE (Id = @Id)";
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GeneratedBoxId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 23, 3, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Connection = new global::System.Data.SqlClient.SqlConnection(global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Connection = new global::System.Data.SqlClient.SqlConnection(global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString2);
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).CommandText = "dbo.BoxInAnyPalet";
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).CommandType = global::System.Data.CommandType.StoredProcedure;
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BoxId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Connection = new global::System.Data.SqlClient.SqlConnection(global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Connection = new global::System.Data.SqlClient.SqlConnection(global::HateksDepoQr.Properties.Settings.Default.DepoQrConnectionString2);
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).CommandText = "dbo.CheckGeneratedBoxState";
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).CommandType = global::System.Data.CommandType.StoredProcedure;
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
