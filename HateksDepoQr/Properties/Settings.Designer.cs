@@ -12,7 +12,7 @@ namespace HateksDepoQr.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.3.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.1.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -28,9 +28,31 @@ namespace HateksDepoQr.Properties {
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=EMREHAMURCU\\SQLEXPRESS;Initial Catalog=DepoQr;Integrated Security=Tru" +
             "e")]
+        public string DepoQrConnectionString1 {
+            get {
+                return ((string)(this["DepoQrConnectionString1"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=HATEKSMRPTEST;initial catalog=HateksPurchasing;User ID=sa;Password=Em" +
+            "rhmrc.95 ;Integrated Security=True")]
         public string DepoQrConnectionString {
             get {
                 return ((string)(this["DepoQrConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=HATEKSMRPTEST;Initial Catalog=DepoQr;Persist Security Info=True;User " +
+            "ID=sa;Password=Emrhmrc.95")]
+        public string DepoQrConnectionString2 {
+            get {
+                return ((string)(this["DepoQrConnectionString2"]));
             }
         }
     }
